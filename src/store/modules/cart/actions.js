@@ -25,6 +25,8 @@ function addProductToCartFailure(productId) {
   };
 }
 
-export default (addProductToCartRequest,
-addProductToCartSuccess,
-addProductToCartFailure);
+export {
+  addProductToCartRequest,
+  addProductToCartSuccess,
+  addProductToCartFailure,
+};
