@@ -10,10 +10,18 @@ const cart = (state = INITIAL_STATE, action) => {
       case "ADD_PRODUCT_TO_CART": {
         const { product } = action.payload;
 
-        draft.items.push({
-          product,
-          quantity: 1,
-        });
+        const productinCartIndex = draft.items.findIndex(
+          (item) => item.product.id === product.id
+        );
+        if (productinCartIndex >= 0) {
+          draft.items[productinCartIndex].quantity++;
+        } else {
+          draft.items.push({
+            product,
+            quantity: 1,
+          });
+        }
+
         break;
       }
 
