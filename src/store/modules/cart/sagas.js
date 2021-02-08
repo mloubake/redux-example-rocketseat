@@ -1,7 +1,7 @@
 import { all, takeLatest, select } from "redux-saga/effects";
 
-function* checkProductStock(addProductToCart) {
-  const { product } = addProductToCart.payload;
+function* checkProductStock(addProductToCartRequest) {
+  const { product } = addProductToCartRequest.payload;
 
   const currentQuantity = yield select((state) => {
     return (
@@ -13,4 +13,6 @@ function* checkProductStock(addProductToCart) {
   console.log(currentQuantity);
 }
 
-export default all([takeLatest("ADD_PRODUCT_TO_CART", checkProductStock)]);
+export default all([
+  takeLatest("ADD_PRODUCT_TO_CART_REQUEST", checkProductStock),
+]);
