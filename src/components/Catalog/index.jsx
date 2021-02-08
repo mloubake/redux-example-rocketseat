@@ -29,7 +29,7 @@ const Catalog = () => {
         {catalog.map((product) => (
           <article key={product.id}>
             <strong>{product.title}</strong> {" - "}
-            <span>{product.price}</span> {"  "}
+            <span>R${product.price.toFixed(2)}</span> {"  "}
             <button
               type="button"
               onClick={() => handleAddProductToCart(product)}
